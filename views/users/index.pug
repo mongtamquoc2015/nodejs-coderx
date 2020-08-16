@@ -13,3 +13,4 @@ html(lang="en")
 	ul
 		each user in users
 			li= user.name
+				a(href=`users/${user.id}`) view

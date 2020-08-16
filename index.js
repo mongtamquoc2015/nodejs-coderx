@@ -11,12 +11,12 @@ const adapter = new FileSync('db.json');
 const db = lowdb(adapter);
 
 // Set some default database
-db.defaults({users: []})
+db.defaults({ users: [] })
 	.write();
 
 // Body parser
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Template engine
 app.set('view engine', 'pug');
@@ -52,7 +52,14 @@ app.post('/users/create', (req, res) => {
 	db.get('users')
 		.push(newUser)
 		.write();
-	res.render('users/index', {users});
+	res.render('users/index', { users });
+});
+
+// View a user
+app.get('/users/:id', (req, res) => {
+	const id = req.params.id;
+	const user = db.get('users').find({ id}).value();
+	res.render('users/profile', { user });
 });
 
 app.get('/', (req, res) => res.send('Hello World!'));
