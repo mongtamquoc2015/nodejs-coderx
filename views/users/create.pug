@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-html(lang="en")
-	head
-		meta(charset="UTF-8")
-		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		title Create a User
-	body
+extends ../layouts/app	
+
+block content
 	h1 Create a User
 	form(action="/users/create",method="POST")
-		input(type="text",name="name")
-		button Add
+		div(class="form-group")
+			label Name
+			input(type="text",name="name",class="form-control")
+			button Add
+block footer
+	p Coder by Namisan

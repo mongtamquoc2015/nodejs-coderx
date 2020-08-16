@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-html(lang="en")
-	head
-		meta(charset="UTF-8")
-		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		title User
-	body
+extends ../layouts/app	
+block content	
 	h1 List User
 	a(href="users/create") Create new user
 	form(action="/users/search",method="GET")
-		input(type="text",placeholder="...",name="q")
-		button Search
+		div(class="form-group")
+			label Search
+			input(type="text",placeholder="...",name="q",class="form-control")
+			button(class="btn btn-primary") OK
 	ul
 		each user in users
 			li= user.name
 				a(href=`users/${user.id}`) view
+block footer 
+	p Code by Namisan
+
+	
