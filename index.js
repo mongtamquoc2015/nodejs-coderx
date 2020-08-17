@@ -13,6 +13,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'pug');
 app.set('views', 'views');
 
+// Static files
+app.use(express.static('public'));
+
 // Router
 app.use('/users', userRoutes);
 

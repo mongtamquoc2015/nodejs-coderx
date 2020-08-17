@@ -1,7 +1,8 @@
 extends ../layouts/app	
+
 block content	
-	h1 List User
-	a(href="users/create") Create new user
+	h1(class="title") List User
+	a(href="/users/create") Create new user
 	form(action="/users/search",method="GET")
 		div(class="form-group")
 			label Search
@@ -11,7 +12,5 @@ block content
 		each user in users
 			li= user.name
 				a(href=`users/${user.id}`) view
-block footer 
-	p Code by Namisan
 
-	
+
